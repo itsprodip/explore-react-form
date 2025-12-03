@@ -2,13 +2,21 @@ import React, { useState } from 'react';
 
 const ControlledFilled = () => {
     const [password,setPassword]= useState('');
+    const [errors,setErros]=useState('');
     const handleSubmit=(event)=>{
+      console.log("submitted");
         event.preventDefault();
+        console.log(password);
     }
 
     const handleChangePassword=(event)=>{
         event.preventDefault();
-        console.log(event.target.value);
+        
+        setPassword(event.target.value);
+        console.log(password);
+        password.length < 5
+          ? setErros("Password required 6 character or more")
+          : setErros("password ok");
     }
     return (
       <div className="flex justify-center w-11/12 mx-auto mt-10">
@@ -40,6 +48,9 @@ const ControlledFilled = () => {
               value="Submit"
             />
           </form>
+          <p className={`${password.length <6 ?"text-red-500" : "text-green-500"}`}>
+            <small>{errors}</small>
+          </p>
         </div>
       </div>
     );
