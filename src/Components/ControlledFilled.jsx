@@ -7,7 +7,7 @@ const ControlledFilled = () => {
   const handleSubmit = (event) => {
     console.log("submitted");
     event.preventDefault();
-    console.log(password);
+    console.log(email,password);
   };
   const handleChangeEmail = event =>{
     setEmail(event.target.value);
@@ -34,7 +34,7 @@ const ControlledFilled = () => {
             className="input"
             onChange={handleChangeEmail}
             defaultValue={email}
-            value={""}
+            
             required
           />
           <input
